@@ -1,0 +1,13 @@
+<h2 data-ng-bind="heading" class="heading"></h2>
+<h3 data-ng-bind="subHeading" class="sub-heading"></h3>
+<style>
+    .face a {
+        border: solid thin black;
+        float: left;
+        width: 100%;
+        height: 100px;
+    }
+</style>
+<div data-ng-repeat="(moodSwing,moodClass) in panes" class="{{moodClass}}">
+    <a data-ng-click="selectMood(moodSwing)">&nbsp;</a>
+</div>

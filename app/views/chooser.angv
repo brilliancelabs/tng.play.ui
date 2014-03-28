@@ -1,0 +1,17 @@
+<style>
+	.navbar-fixed-top {
+		height: 4% !important;
+	}
+	.btn {
+		height: 0px !important;
+		color: midnightblue;
+		font-weight: bold;
+		font-size: 28px !important;
+		padding: 24% 0 !important;
+	}
+</style>
+<div class="dynamic-content btn-group btn-group-vertical btn-group-lg">
+    <a type="button" class="btn btn-default"
+            data-ng-repeat="(paneTitle, paneLink) in panes"
+            data-ng-click="initializeTracking(paneLink)" data-ng-bind="paneTitle"></a>
+</div>

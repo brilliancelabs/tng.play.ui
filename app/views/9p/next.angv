@@ -1,0 +1,19 @@
+<div data-ng-include="'app/views/9p/header.angv'"></div>
+	<div class="subhead">
+		<!--<span style="float:left;position:absolute;left:4%">Hole: {{ currentHole }}</span>-->
+		<span class="sub-heading">What's Next?</span>
+		<!--<span style="float:right;position:absolute;right:4%">Shot: {{ currentShot }}</span>-->
+	</div>
+</div>
+<div class="container main" data-ng-show="activePane == 1">
+	<div class="row row-two">
+		<div class="cell" data-choose-next="hole">
+			End Hole
+		</div>
+	</div>
+	<div class="row row-two">
+		<div class="cell" data-choose-next="shot">
+			Next Shot
+		</div>
+	</div>
+</div>

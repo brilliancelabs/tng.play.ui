@@ -1,0 +1,26 @@
+<h2 data-ng-bind="heading" class="heading"></h2>
+<h3 data-ng-bind="subHeading" class="sub-heading"></h3>
+
+<!--<div class="dynamic-content btn-group btn-group-vertical btn-group-lg">-->
+    <!--<a type="button" class="btn btn-default"-->
+       <!--data-ng-repeat="(paneTitle, paneLink) in panes"-->
+       <!--data-ng-click="continuePlaySetup(paneLink)" data-ng-bind="paneTitle"></a>-->
+<!--</div>-->
+
+<div class="col-sm-6 col-md-3" data-ng-swipe-left="">
+	<div class="thumbnail tile tile-teal">
+		<a href="#" >
+			<h1>Front 9</h1>
+		</a>
+	</div>
+</div>
+
+<div class="col-sm-6 col-md-3">
+	<div class="thumbnail tile tile-teal">
+		<a href="#">
+			<h1>Back 9</h1>
+		</a>
+	</div>
+</div>
+
+

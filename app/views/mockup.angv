@@ -1,0 +1,166 @@
+<h1>TalknGolf</h1>
+<h2>App Phases</h2>
+<div style="text-align:center">If boxes don't fit in device then ZOOM-IN using your browser's zoomer until it looks good.</div>
+<hr />
+
+<h3>Intro/General Screens</h3>
+<div id="desktop">
+
+    <div id="device" class="landscape">
+        <div id="splash">
+            <div id="splash-image">&nbsp;</div>
+            <div id="loading">:: LOADING ::</div>
+        </div>
+    </div>
+
+    <div id="device">
+        <div id="splash">
+
+            <div id="splash-image-vertical">&nbsp;</div>
+            <div id="loading-vertical">:: LOADING ::</div>
+        </div>
+    </div>
+
+    <div id="device">
+        <div id="title">
+            <div id="title-logo">&nbsp;</div>TalknGolf</div>
+        <div id="subtitle">Choose an action</div>
+        <div id="chooser" class="page">
+            <div class="pane half">Play</div>
+            <div class="pane half">Setup</div>
+        </div>
+    </div>
+
+    <hr class="clear" />
+    <h3>Play Tracking Screens</h3>
+
+
+    <div id="device">
+        <div id="title">
+            <div id="title-logo">&nbsp;</div>Choose a club</div>
+        <div id="subtitle">
+            <div class="split"><a>Hole 4</a></div>
+            <div class="split"><a>Stroke 3</a></div>
+        </div>
+        <div id="chooser" class="page">
+            <div class="pane split quarter">Driver</div>
+            <div class="pane split quarter">3-Wood</div>
+            <div class="pane split quarter">4-Wood</div>
+            <div class="pane split quarter">4-Hybrid</div>
+            <div class="pane split quarter">5-iron</div>
+            <div class="pane split quarter">6-iron</div>
+            <div class="pane split quarter">7-iron</div>
+            <div class="pane split quarter">8-iron</div>
+        </div>
+    </div>
+
+
+    <div id="device">
+        <div id="title">
+            <div id="title-logo">&nbsp;</div>Choose a club</div>
+        <div id="subtitle">
+            <div class="split"><a>Hole 4</a></div>
+            <div class="split"><a>Stroke 3</a></div>
+        </div>
+        <div id="chooser" class="page">
+            <div class="pane split quarter">9-iron</div>
+            <div class="pane split quarter">A Wedge</div>
+            <div class="pane split quarter">P Wedge</div>
+            <div class="pane split quarter">L Wedge</div>
+            <div class="pane split quarter">S Wedge</div>
+            <div class="pane split quarter">Putter</div>
+            <div class="pane split quarter empty">&nbsp;</div>
+            <div class="pane split quarter empty">&nbsp;</div>
+        </div>
+    </div>
+
+
+    <div id="device">
+        <div id="title">
+            <div id="title-logo">&nbsp;</div>Choose a club</div>
+        <div id="subtitle" class="highlight">
+            <div class="split"><a>Hole 4</a></div>
+            <div class="split"><a>Stroke 3</a></div>
+        </div>
+        <div id="chooser" class="page">
+            <div id="overlay-left">
+                <div class="pane">Hole 3</div>
+                <div class="pane">Hole 2</div>
+                <div class="pane">Hole 1</div>
+                <div class="pane">Close</div>
+            </div>
+            <div id="overlay-block-screen"></div>
+            <div class="pane split quarter">Driver</div>
+            <div class="pane split quarter">3-Wood</div>
+            <div class="pane split quarter">4-Wood</div>
+            <div class="pane split quarter">4-Hybrid</div>
+            <div class="pane split quarter">5-iron</div>
+            <div class="pane split quarter">6-iron</div>
+            <div class="pane split quarter">7-iron</div>
+            <div class="pane split quarter">8-iron</div>
+        </div>
+    </div>
+
+
+    <div id="device">
+        <div id="title">
+            <div id="title-logo">&nbsp;</div>Choose a club</div>
+        <div id="subtitle" class="highlight">
+            <div class="split"><a>Hole 4</a></div>
+            <div class="split"><a>Stroke 3</a></div>
+        </div>
+        <div id="chooser" class="page">
+            <div id="overlay-right">
+                <div class="overlay-pane"><span class="face1-tiny"></span>Stroke 2</div>
+                <div class="overlay-pane"><span class="face4-tiny"></span>Stroke 1</div>
+                <div class="overlay-pane center">Close</div>
+            </div>
+            <div id="overlay-block-screen"></div>
+            <div class="pane split quarter">Driver</div>
+            <div class="pane split quarter">3-Wood</div>
+            <div class="pane split quarter">4-Wood</div>
+            <div class="pane split quarter">4-Hybrid</div>
+            <div class="pane split quarter">5-iron</div>
+            <div class="pane split quarter">6-iron</div>
+            <div class="pane split quarter">7-iron</div>
+            <div class="pane split quarter">8-iron</div>
+        </div>
+    </div>
+
+
+
+    <div id="device">
+        <div id="title">
+            <div id="title-logo">&nbsp;</div>TalknGolf</div>
+        <div id="subtitle">What's next?</div>
+        <div id="chooser" class="page">
+            <div class="pane quarter">Exit Game</div>
+            <div class="pane quarter">Pause Game</div>
+            <div class="pane quarter">End Hole</div>
+            <div class="pane quarter feature">Continue</div>
+        </div>
+    </div>
+</div>
+
+<hr class="clear" />
+<h3>Mood Analysis and Metrics</h3>
+<h4>Buttons will reflect the "overall mood" during a particular round.  The color will begin with green then adjust to the current mood of the player.</h4>
+
+<div id="device">
+    <div id="title">
+        <div id="title-logo">&nbsp;</div>Mood Swings&reg;
+    </div>
+    <div id="subtitle">How did that feel?</div>
+    <div id="chooser" class="page">
+        <div class="pane quarter face face4">&nbsp;</div>
+        <div class="pane quarter face face3">&nbsp;</div>
+        <div class="pane quarter face face2">&nbsp;</div>
+        <div class="pane quarter face face1">&nbsp;</div>
+    </div>
+</div>
+
+<hr class="clear" />
+
+<div id="footer">
+    K. Shunz - TalknGolf
+</div>

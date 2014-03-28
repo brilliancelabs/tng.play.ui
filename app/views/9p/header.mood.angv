@@ -1,0 +1,7 @@
+<header>
+	<div class="logo" data-ng-click="loadPhase('1')">&nbsp;</div>
+	How was that shot?
+	<span class="go-back pull-right" data-ng-click="goBack()">
+		Back
+	</span>
+</header>

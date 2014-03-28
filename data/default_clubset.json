@@ -1,0 +1,35 @@
+{
+	"4-iron": {
+		"code": "4-iron"
+	},
+	"driver": {
+		"code": "driver"
+	},
+	"putter": {
+		"code": "putter"
+	},
+	"3-wood": {
+		"code": "3-wood"
+	},
+	"5-iron": {
+		"code": "5-iron"
+	},
+	"sand-wedge": {
+		"code": "sand-wedge"
+	},
+	"6-iron": {
+		"code": "6-iron"
+	},
+	"pitching-wedge": {
+		"code": "pitching-wedge"
+	},
+	"7-iron": {
+		"code": "7-iron"
+	},
+	"8-iron": {
+		"code": "8-iron"
+	},
+	"9-iron": {
+		"code": "9-ron"
+	}
+}

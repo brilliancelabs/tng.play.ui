@@ -1,0 +1,84 @@
+[
+	{
+		"pane": [
+			{
+				"name": "driver",
+				"html": "Driver",
+				"club_number": "1"
+			},
+			{
+				"name": "putter",
+				"html": "Begin Putting",
+				"club_number": "0"
+			}
+		]
+	},
+	{
+		"pane": [
+			{
+				"name": "2-iron",
+				"html": "2-Iron"
+			},
+			{
+				"name": "3-wood",
+				"html": "3-Wood"
+			},
+			{
+				"name": "3-hybrid",
+				"html": "3-Hybrid"
+			},
+			{
+				"name": "3-iron",
+				"html": "3-Iron"
+			},
+			{
+				"name": "4-iron",
+				"html": "4-Iron"
+			},
+			{
+				"name": "4-hybrid",
+				"html": "4-Hybrid"
+			},
+			{
+				"name": "5-iron",
+				"html": "5-Iron"
+			},
+			{
+				"name": "6-iron",
+				"html": "6-Iron"
+			}
+		]
+	},
+	{
+		"pane": [
+			{
+				"name": "7-iron",
+				"html": "7-Iron"
+			},
+			{
+				"name": "8-iron",
+				"html": "8-Iron"
+			},
+			{
+				"name": "9-iron",
+				"html": "9-Iron"
+			},
+			{
+				"name": "aw",
+				"html": "AW"
+			},
+			{
+				"name": "pw",
+				"html": "PW"
+			},
+			{
+				"name": "lw",
+				"html": "LW"
+			},
+			{
+				"name": "pw",
+				"html": "SW"
+			}
+		]
+	}
+]

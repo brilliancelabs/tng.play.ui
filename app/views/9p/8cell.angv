@@ -1,0 +1,98 @@
+<div class="container main" data-ng-show="activePane == 1" data-ng-swipe-left="activePane=activePane+1">
+	<div class="row row-four">
+		<div class="cell">
+			Hole 1
+		</div>
+		<div class="cell">
+			Hole 2
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 3
+		</div>
+		<div class="cell">
+			Hole 4
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 5
+		</div>
+		<div class="cell">
+			Hole 6
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 7
+		</div>
+		<div class="cell">
+			Hole 8
+		</div>
+	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 2" data-ng-swipe-right="activePane=activePane-1" data-ng-swipe-left="activePane=activePane+1">
+	<div class="row row-four">
+		<div class="cell">
+			Hole 9
+		</div>
+		<div class="cell">
+			Hole 10
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 11
+		</div>
+		<div class="cell">
+			Hole 12
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 13
+		</div>
+		<div class="cell">
+			Hole 14
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 15
+		</div>
+		<div class="cell">
+			Hole 16
+		</div>
+	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 3" data-ng-swipe-right="activePane=activePane-1">
+	<div class="row row-four">
+		<div class="cell">
+			Hole 17
+		</div>
+		<div class="cell">
+			Hole 18
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+		</div>
+		<div class="cell">
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+		</div>
+		<div class="cell">
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+		</div>
+		<div class="cell">
+		</div>
+	</div>
+</div>

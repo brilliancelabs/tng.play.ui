@@ -1,0 +1,120 @@
+body {
+    background: #EEE;
+}
+/*.primary-toolbar {*/
+    /*background: green;*/
+    /*border: none;*/
+    /*border-bottom: solid 3px #AAA;*/
+/*}*/
+/*.primary-toolbar .container {*/
+    /*background: green;*/
+    /*width: 98%;*/
+/*}*/
+.logo {
+    color: white !important;
+    font-weight: bold;
+    font-size: 2em;
+}
+nav {
+    background: black;
+    color: white;
+}
+nav a,
+nav a:active,
+nav a:visited {
+    color: white;
+}
+nav a:hover {
+    text-decoration: none;
+    color: #EEE;
+}
+nav a:active {
+    color: royalblue;
+}
+.navbar-header {
+}
+.navbar-center {
+    float: left;
+    border: solid thin lime;
+}
+.exit {
+    font-size: 2em;
+}
+.mView {
+    margin-top: 50px;
+    /*border: solid thin red;*/
+    text-align: center;
+}
+.mView .heading {
+    text-align: center;
+    letter-spacing: 0.1em;
+    /*background: lime;*/
+    padding: 15px 15px 0px;
+    margin: 0 0 0 0;
+}
+.mView .sub-heading {
+    font-size: 0.9em;
+    color: #777;
+    text-align: center;
+    /*background: orange;*/
+    padding: 5px;
+    margin: 0 0 0 0;
+}
+.mView .dynamic-content {
+    /*border: solid thin yellow;*/
+    width: 100%;
+}
+
+#title-name {
+    position: absolute;
+    width: 100%;
+    font-size: 1.4em;
+}
+.show-when-collapsed {
+    border: solid thin red;
+}
+
+#subtitle {
+    padding: 10px;
+    background: #CCC;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    height: 20px;
+}
+#subtitle div {;
+    width: 49%;
+    margin: auto;
+}
+#subtitle div a {
+    background: black;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 20px 20px 20px;
+    font-size: 0.7em;
+}
+#title {
+    background: midnightblue;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 5px;
+    color: white;
+    text-align: center !important;
+}
+
+#title-logo {
+    position: absolute;
+    background: url(../app/views/img/talkngolf-icon-36x36.png) white;
+    background-size: cover;
+    border-radius: 5px;
+    float: left;
+    height: 36px;
+    width: 36px;
+    margin: 5px 3px;
+}
+#user-account-menu.dropdown-menu > li > a {
+    text-align:right;
+}
