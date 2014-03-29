@@ -1,71 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="shortcut icon" href="favicon.ico">
-
-	<title>TalknGolf Tracker</title>
-
-	<!-- Bootstrap core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Custom styles for this template -->
-	<link href="css/talkngolf.css" rel="stylesheet">
-
-	<style type="text/css">
-		.title {
-			font-size: 1.5em;
-			font-weight: bold;
-			color: white;
-		}
-		.title .alt-color {
-			color: #CCC;
-		}
-		.subhead {
-			color: #555;
-		}
-		.sub-heading {
-			font-size: 1.2em !important;
-			letter-spacing: 0.1em;
-			line-height: 0.5em;
-			color: darkgreen;
-		}
-		.mood-thumbs {
-			color: darkgreen;
-			font-size: 3em;
-		}
-		.go-back {
-			font-size: 75%;
-			color: #777;
-		}
-		.row-two, .cell {
-			/*border:1px solid #d7dada; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;*/
-			background-color: #f4f5f5; background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f5f5), to(#dfdddd));
-			background-image: -webkit-linear-gradient(top, #f4f5f5, #dfdddd);
-			background-image: -moz-linear-gradient(top, #f4f5f5, #dfdddd);
-			background-image: -ms-linear-gradient(top, #f4f5f5, #dfdddd);
-			background-image: -o-linear-gradient(top, #f4f5f5, #dfdddd);
-			background-image: linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
-		}
-
-		.row-two:active, .cell:active {
-			/*border:1px solid #bfc4c4;*/
-			background-color: #d9dddd; background-image: -webkit-gradient(linear, left top, left bottom, from(#d9dddd), to(#c6c3c3));
-			background-image: -webkit-linear-gradient(top, #d9dddd, #c6c3c3);
-			background-image: -moz-linear-gradient(top, #d9dddd, #c6c3c3);
-			background-image: -ms-linear-gradient(top, #d9dddd, #c6c3c3);
-			background-image: -o-linear-gradient(top, #d9dddd, #c6c3c3);
-			background-image: linear-gradient(to bottom, #d9dddd, #c6c3c3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#d9dddd, endColorstr=#c6c3c3);
-		}
-
-	</style>
-</head>
-
-<!--CONTENT-->
 <body data-ng-app="TnG">
 <span data-ng-view=""></span>
 
@@ -88,9 +22,8 @@
 
 	.controller('Demo', function ($scope, $location, $route, $firebase, $window) {
 		var ctrl = this,
+		firstTimeHelp,
 		loadValue,
-		loadNextShot,
-		loadNextHole,
 		loadPhase;
 
 		var refUrl = 'https://tng-rounds.firebaseio.com/demo';
@@ -209,6 +142,110 @@
 		roundState;
 
 		angular.element('[data-choose-next]').on('click', function () {
+			chosenAction = angular.element(this).data().chooseNext;
+			roundState  = $location.path().split('/');
+			roundState.pop(); //play mode
+			roundState.pop(); //current club
+			currentShotNumber = parseInt(roundState.pop());
+			currentHoleNumber = parseInt(roundState.pop());
+
+			if(chosenAction === 'shot') {
+				nextShotNumber = currentShotNumber + 1;
+				roundState.push(currentHoleNumber);
+				roundState.push(nextShotNumber);
+				nextShot = roundState.join('/');
+
+				$window.location = "#"+nextShot;
+			}
+
+			if(chosenAction === 'hole') {
+				nextHoleNumber = currentHoleNumber + 1;
+				roundState.push(nextHoleNumber);
+				nextHole = roundState.join('/');
+
+				$window.location = "#"+nextHole+"/par";
+			}
+		});
+
+		$scope.goBack = function () {
+			history.back();
+			if(!$scope.$$phase) {
+				$scope.$apply();
+			}
+		}
+
+		/**First Time Help**/
+		var seenAlready = 0;
+		var helpSwipeForMoreUrl;
+
+		firstTimeHelp = {};
+		firstTimeHelp.swipeForMore = {
+			"status": seenAlready,
+			"url": "app/views/9p/help_swipe_for_more.angv"
+		};
+
+		if(!firstTimeHelp.swipeForMore.status) {
+			helpSwipeForMoreUrl = firstTimeHelp.swipeForMore.url;
+		}
+
+		$scope.helpSwipeForMore = helpSwipeForMoreUrl;
+	})
+	.config(function ($routeProvider) {
+		$routeProvider
+		.when('/', {
+			redirectTo: "/play"
+		})
+		.when('/play', {
+			controller: "Demo",
+			templateUrl: "app/views/9p/starting_hole.angv"
+		})
+		.when('/play/:hole/par', {
+			controller: "Demo",
+			templateUrl: "app/views/9p/par.angv"
+		})
+		.when('/play/:hole/:shot', {
+			controller: "Demo",
+			templateUrl: "app/views/9p/club.angv"
+		})
+		.when('/play/:hole/:shot/:club', {
+			controller: "Demo",
+			templateUrl: "app/views/9p/mood_thumbs.angv"
+		})
+		.when('/play/:hole/:shot/:club/:mood', {
+			controller: "Demo",
+			templateUrl: "app/views/9p/next.angv"
+		})
+	});
+</script>
+
+</body>
+
+<!--CONTENT-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<title>TalknGolf Tracker</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/talkngolf.css" rel="stylesheet">
+
+	<!-- ngAnimate support -->
+	<link href="css/animation_support.css" rel="stylesheet">
+
+	<style type="text/css">
+
+
+	</style>
+</head>
+</html>) {
 			chosenAction = angular.element(this).data().chooseNext;
 			roundState  = $location.path().split('/');
 			roundState.pop(); //play mode

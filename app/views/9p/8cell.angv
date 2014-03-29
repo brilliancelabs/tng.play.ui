@@ -33,7 +33,8 @@
 	</div>
 </div>
 
-<div class="container main" data-ng-show="activePane == 2" data-ng-swipe-right="activePane=activePane-1" data-ng-swipe-left="activePane=activePane+1">
+<div class="container main" data-ng-show="activePane == 2" data-ng-swipe-right="activePane=activePane-1"
+     data-ng-swipe-left="activePane=activePane+1">
 	<div class="row row-four">
 		<div class="cell">
 			Hole 9

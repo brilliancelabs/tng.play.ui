@@ -3,7 +3,7 @@
 angular.module('TnG')
 
 .service('FirebaseAuth',
-	function ($location, $window, $rootScope, $q) {
+function ($location, $window, $rootScope, $q) {
 
 	var $self = this;
 	var authRefUrl = 'https://talkngolf.firebaseio.com';
@@ -46,12 +46,12 @@ angular.module('TnG')
 
 		this.findUsername()
 		.then(
-			function (username) {
-				waiter.resolve(username);
-			},
-			function () {
-				waiter.reject();
-			}
+		function (username) {
+			waiter.resolve(username);
+		},
+		function () {
+			waiter.reject();
+		}
 		);
 
 		return waiter.promise;
@@ -61,8 +61,8 @@ angular.module('TnG')
 		var defer = $q.defer();
 		var username;
 
-		new FirebaseSimpleLogin(db, function(error, user) {
-			if(user){
+		new FirebaseSimpleLogin(db, function (error, user) {
+			if (user) {
 				username = user.username;
 				defer.resolve(username);
 			} else {
@@ -75,16 +75,16 @@ angular.module('TnG')
 	};
 
 	this.authPassword = function (emailEnteredByUser, passwordEnteredByUser) {
-		if(emailEnteredByUser && passwordEnteredByUser) {
+		if (emailEnteredByUser && passwordEnteredByUser) {
 			var auth = new FirebaseSimpleLogin(db, function (error, user) {
-				if(error){
+				if (error) {
 					console.log(error);
 
-				}else if(user){
+				} else if (user) {
 					console.log('Logged in as: ', user.username);
 					$window.location = "#/";
 
-				}else{
+				} else {
 					console.log("Email: ", emailEnteredByUser);
 					console.log("Pass: ", passwordEnteredByUser);
 
@@ -92,17 +92,18 @@ angular.module('TnG')
 						email: emailEnteredByUser,
 						password: passwordEnteredByUser
 					}, function (error, user) {
-                        console.log(user);
-                    });
+						console.log(user);
+					});
 
-					this.createUser(emailEnteredByUser, passwordEnteredByUser, function(error, user) {
+					this.createUser(emailEnteredByUser, passwordEnteredByUser, function (error, user) {
 						if (!error) {
 							console.log('User Id: ' + user.id + ', Email: ' + user.email);
 						} else {
 							console.log(error);
 						}
 					});
-				};
+				}
+				;
 			});
 
 
@@ -110,43 +111,45 @@ angular.module('TnG')
 	};
 
 	this.authTwitter = function () {
-		var auth = new FirebaseSimpleLogin(db, function(error, user) {
-			if(error){
+		var auth = new FirebaseSimpleLogin(db, function (error, user) {
+			if (error) {
 				console.log(error);
 
-			}else if(user){
+			} else if (user) {
 				console.log('Logged in as: ', user.username);
 				$window.location = "#/";
 
-			}else{
+			} else {
 				this.login('twitter');
 
-			};
+			}
+			;
 		});
 	};
 
 	this.authFacebook = function () {
-		var auth = new FirebaseSimpleLogin(db, function(error, user) {
+		var auth = new FirebaseSimpleLogin(db, function (error, user) {
 
-			if(error){
+			if (error) {
 				console.log(error);
 
-			}else if(user){
+			} else if (user) {
 				$self.register(user.username, user, "facebook");
 
-			}else{
+			} else {
 				this.login('facebook', {
 					scope: 'email, user_likes'
 				});
 
-			};
+			}
+			;
 
 		});
 	};
 
 	this.register = function () {
 		var userAlreadyInDb;
-		if(arguments.length > 1){
+		if (arguments.length > 1) {
 
 			var username = arguments[0];
 
@@ -154,35 +157,36 @@ angular.module('TnG')
 
 			var provider = arguments[2];
 
-			if(provider){
-				username+="-";
-				username+=provider;
+			if (provider) {
+				username += "-";
+				username += provider;
 				userData.via = provider;
 			}
 			var users = db.child('users');
 			username = username.replace(".", "^dot^"); //remove dots
 			var thisUser = users.child(username);
 
-			thisUser.on('value', function(data){
+			thisUser.on('value', function (data) {
 				userAlreadyInDb = data.val();
 				console.log('UDB: ', userAlreadyInDb);
 			});
 
-			if(!userAlreadyInDb){
+			if (!userAlreadyInDb) {
 				console.log('attempting to save a new user');
-                var auth = new FirebaseSimpleLogin(db, function(error, user) {
+				var auth = new FirebaseSimpleLogin(db, function (error, user) {
 
-                    if(error){
-                        console.log(error);
+					if (error) {
+						console.log(error);
 
-                    }else if(user){
-                        console.log(user);
+					} else if (user) {
+						console.log(user);
 
-                    }
+					}
 
-                });
+				});
 
-			};
+			}
+			;
 
 			$window.location = "#/";
 		}
@@ -190,8 +194,8 @@ angular.module('TnG')
 	};
 
 	this.logout = function () {
-		var auth = new FirebaseSimpleLogin(db, function(error, user) {
-			if(user) {
+		var auth = new FirebaseSimpleLogin(db, function (error, user) {
+			if (user) {
 				auth.logout();
 			}
 		});

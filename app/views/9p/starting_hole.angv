@@ -1,16 +1,18 @@
+<div data-ng-include="helpSwipeForMore"></div>
 <div data-ng-include="'app/views/9p/header.angv'"></div>
 <div class="subhead">
 	Starting Hole?
 </div>
-<div class="container main" data-ng-show="activePane == 1" data-ng-swipe-left="activePane=activePane+1">
-	<div class="row row-two">
-		<div class="cell" data-choose-hole="10">
-			Hole 10
-		</div>
-	</div>
+<div class="container main" data-ng-show="activePane == 1" data-ng-swipe-right="activePane=3"
+     data-ng-swipe-left="activePane=activePane+1">
 	<div class="row row-two">
 		<div class="cell" data-choose-hole="1">
 			Hole 1
+		</div>
+	</div>
+	<div class="row row-two">
+		<div class="cell" data-choose-hole="10">
+			Hole 10
 		</div>
 	</div>
 </div>

@@ -3,7 +3,7 @@
 var app = angular.module('TnG')
 
 .service('CurrentPlayer', function () {
-    this.getUsername = function () {
-        return "morganpressel";
-    };
+	this.getUsername = function () {
+		return "morganpressel";
+	};
 });

@@ -13,7 +13,7 @@ angular.module('TnG')
 		var email = $scope.quickRegister.username;
 		var password = $scope.quickRegister.password;
 
-		if(email && password) {
+		if (email && password) {
 			FirebaseAuth.authPassword(email, password);
 		}
 
@@ -26,6 +26,6 @@ angular.module('TnG')
 })
 
 .controller('UsersLogout', function ($scope, FirebaseAuth) {
-		FirebaseAuth.logout();
+	FirebaseAuth.logout();
 })
 

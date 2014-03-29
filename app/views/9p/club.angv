@@ -5,26 +5,14 @@
 	<span style="float:right;position:absolute;right:4%">Shot: {{ currentShot }}</span>
 </div>
 
-<div class="container main" data-ng-show="activePane == 1" data-ng-swipe-right="activePane=3"
+<div class="container main" data-ng-show="activePane == 1" data-ng-swipe-right="activePane=4"
      data-ng-swipe-left="activePane=activePane+1">
-	<div class="row row-two">
-		<div class="cell" data-choose-club="putter">
-			Begin Putting
-		</div>
-	</div>
-	<div class="row row-two">
+	<div class="row row-four">
 		<div class="cell" data-choose-club="driver">
 			Driver
 		</div>
 	</div>
-</div>
-
-<div class="container main" data-ng-show="activePane == 2" data-ng-swipe-right="activePane=activePane-1"
-     data-ng-swipe-left="activePane=activePane+1">
 	<div class="row row-four">
-		<div class="cell" data-choose-club="2-iron">
-			2-Iron
-		</div>
 		<div class="cell" data-choose-club="3-wood">
 			3-Wood
 		</div>
@@ -33,14 +21,22 @@
 		<div class="cell" data-choose-club="3-hybrid">
 			3-Hybrid
 		</div>
+	</div>
+	<div class="row row-four">
 		<div class="cell" data-choose-club="3-iron">
 			3-Iron
 		</div>
 	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 2" data-ng-swipe-right="activePane=activePane-1"
+     data-ng-swipe-left="activePane=activePane+1">
 	<div class="row row-four">
 		<div class="cell" data-choose-club="4-hybrid">
 			4-Hybrid
 		</div>
+	</div>
+	<div class="row row-four">
 		<div class="cell" data-choose-club="4-iron">
 			4-Iron
 		</div>
@@ -49,6 +45,8 @@
 		<div class="cell" data-choose-club="5-hybrid">
 			5-Hybrid
 		</div>
+	</div>
+	<div class="row row-four">
 		<div class="cell" data-choose-club="5-iron">
 			5-Iron
 		</div>
@@ -56,7 +54,7 @@
 </div>
 
 <div class="container main" data-ng-show="activePane == 3" data-ng-swipe-right="activePane=activePane-1"
-     data-ng-swipe-left="activePane=1">
+     data-ng-swipe-left="activePane=activePane+1">
 	<div class="row row-four">
 		<div class="cell" data-choose-club="6-iron">
 			6-Iron
@@ -89,4 +87,29 @@
 			SW
 		</div>
 	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 4" data-ng-swipe-right="activePane=activePane-1"
+     data-ng-swipe-left="activePane=1">
+	<div class="row row-four">
+		<div class="cell" data-choose-club="1_Putt">
+			1 Putt
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="2_Putt">
+			2 Putt
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="3_Putt"
+		">
+		3 Putt
+	</div>
+</div>
+<div class="row row-four">
+	<div class="cell" data-choose-club="4_Putt">
+		4 Putt
+	</div>
+</div>
 </div>

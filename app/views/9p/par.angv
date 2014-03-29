@@ -3,17 +3,17 @@
 	Par of Hole {{ currentHole }}?
 </div>
 <div class="container main" data-ng-swipe-left="loadPhase('1')">
-	<div class="row row-four">
+	<div class="row row-three">
 		<div class="cell" data-choose-par="3">
 			Par 3
 		</div>
 	</div>
-	<div class="row row-four">
+	<div class="row row-three">
 		<div class="cell" data-choose-par="4">
 			Par 4
 		</div>
 	</div>
-	<div class="row row-four">
+	<div class="row row-three">
 		<div class="cell" data-choose-par="5">
 			Par 5
 		</div>
