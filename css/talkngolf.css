@@ -1,8 +1,10 @@
 html,body,.container {
 	height:100%;
+    color: white;
 }
 header {
-    background: none repeat scroll 0 0 #191970;
+    /*background: none repeat scroll 0 0 #191970;*/
+    background: darkgreen;
     color: #FFFFFF;
     font-size: 1.3em;
     font-weight: bold;
@@ -11,14 +13,30 @@ header {
     padding: 0 5px;
     text-align: center;
 }
-header > .logo {
-    background: url('../img/talkngolf-icon-36x36.png') repeat scroll 0 0 / cover #FFFFFF;
-    border-radius: 5px;
-    height: 36px;
-    width: 36px;
-    margin: 5px 3px;
-    position: relative;
-    border: solid thick green;
+header > .logo-glyph {
+    /*background: url('../img/talkngolf-icon-36x36.png') repeat scroll 0 0 / cover white;*/
+    /*background: red;*/
+    width: 45px !important;
+    height: 45px !important;
+    padding: 0 0 0 0 !important;
+    margin: 0px !important;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 150%;
+    color: white;
+}
+header > .go-back {
+    /*background: red;*/
+    width: 45px !important;
+    height: 45px !important;
+    padding: 0 0 0 0 !important;
+    margin: 0px !important;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-size: 150%;
+    color: white;
 }
 .subhead  {
 	background: #CCC;
@@ -26,7 +44,7 @@ header > .logo {
 	height: 40px;
 	padding: 10px;
 	text-align: center;
-	color: #000000;
+	color: black;
 	font-weight: bold;
 }
 .menu {
@@ -73,6 +91,9 @@ header > .logo {
 .container .cell {
    border-bottom: 1px solid #ccc;
    border-right: 1px solid #ccc;
+   font-size: 1.2em;
+   font-weight: bold;
+   color: #777;
 }
 
 .row:last-child .cell {
@@ -81,11 +102,15 @@ header > .logo {
 .row .cell:last-child {
 	border-right: none;
 }
+.container.main .row {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #777;
+}
 .container.main  .row.row-two .cell {
-	font-size: 3em;
+
 }
 .container.main  .row.row-four .cell {
-	font-size: 2em;
 }
 
 footer {

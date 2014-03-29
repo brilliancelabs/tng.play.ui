@@ -1,7 +1,11 @@
 <header>
-	<div class="logo pull-right" data-ng-click="loadPhase('1')">&nbsp;</div>
-	TalknGolf
-	<span class="go-back pull-left" data-ng-click="goBack()">
-		Back
-	</span>
+	<div class="logo-glyph" data-ng-click="loadPhase('1')">
+		<span class="glyphicon glyphicon-flag"></span>
+	</div>
+	<div class="title">
+		Mood<span class="alt-color">Swings</span>
+	</div>
+	<div class="go-back" data-ng-click="goBack()">
+		<span class="glyphicon glyphicon-circle-arrow-left"></span>
+	</div>
 </header>

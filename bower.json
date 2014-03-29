@@ -1,0 +1,12 @@
+{
+	"name": "TalknGolf MoodSwings App",
+	"version": "1.2.0",
+	"dependencies": {
+		"angular-animate": "1.2.15",
+		"angular-gestures": "0.2.1",
+		"angular-route": "1.2.15",
+		"angular-touch": "1.2.14",
+		"angularfire": "0.7.1",
+		"shake.js": "1.1.0"
+	}
+}
