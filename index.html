@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<body data-ng-app="TnG">
-<span data-ng-view=""></span>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="favicon.ico">
 
-<script src="lib/jquery/jquery-1.10.2.js"></script>
-<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="lib/angular/1.2.14/angular.min.js"></script>
-<script src="lib/angular/1.2.14/angular-route.min.js"></script>
-<script src="lib/angular/1.2.14/angular-touch.min.js"></script>
-<script src="lib/angular/1.2.14/angular-animate.min.js"></script>
-<script src="lib/angular/1.2.14/gestures.min.js"></script>
-<script src="lib/firebase/0.0.0/firebase.js"></script>
-<script src="lib/angular/1.2.14/angularfire.min.js"></script>
-<script src="lib/shake/shake.js"></script>
+	<title>MoodSwings Tracker by TalknGolf</title>
 
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	<script src="lib/jquery/jquery-1.10.2.js"></script>
+	<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="lib/angular/1.2.14/angular.min.js"></script>
+	<script src="lib/angular/1.2.14/angular-route.min.js"></script>
+	<script src="lib/angular/1.2.14/angular-touch.min.js"></script>
+	<script src="lib/angular/1.2.14/angular-animate.min.js"></script>
+	<script src="lib/angular/1.2.14/gestures.min.js"></script>
+	<script src="lib/firebase/0.0.0/firebase.js"></script>
+	<script src="lib/angular/1.2.14/angularfire.min.js"></script>
+	<script src="lib/shake/shake.js"></script>
 
-<script>
+	<!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">-->
+
+
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/talkngolf.css" rel="stylesheet">
+
+	<!-- ngAnimate support -->
+	<link href="css/animation_support.css" rel="stylesheet">
+
+	<script>
 	'use strict';
 
-	angular.module('TnG', ['ngRoute', 'ngAnimate', 'ngTouch', 'angular-gestures', 'firebase'])
+	angular.module('TnG', ['ngRoute', 'ngTouch', 'firebase'])
 
 	.controller('Demo', function ($scope, $location, $route, $firebase, $window) {
 		var ctrl = this,
@@ -143,6 +161,9 @@
 		roundState;
 
 		angular.element('[data-choose-next]').on('click', function () {
+
+			console.log('Passed from the resolve parameter: ', $scope.roundStatus);
+
 			chosenAction = angular.element(this).data().chooseNext;
 			roundState  = $location.path().split('/');
 			roundState.pop(); //play mode
@@ -180,6 +201,7 @@
 			if(mulliganTaken==="yes") {
 				//save mulligan to db for tracking but not scoring
 				//try again
+
 				$window.location = "#"+roundState.join('/');
 			} else {
 
@@ -233,36 +255,25 @@
 		})
 		.when('/play/:hole/:shot/:club/:mood', {
 			controller: "Demo",
-			templateUrl: "app/views/9p/next.angv"
+			templateUrl: "app/views/9p/next.angv",
+			resolve: {
+				"dependencies": function ($rootScope, $route, $firebase) {
+
+					//Firebase interactions
+					var roundRefUrl = 'https://tng-rounds.firebaseio.com/mvp/player1';
+					var roundRef = new Firebase(roundRefUrl);
+					var playState = $route.current.params;
+					var thisShot = roundRef.child(playState.hole).child(playState.shot);
+
+					thisShot.set($route.current.params);
+
+				}
+			}
 		})
 	});
-</script>
-
-</body>
-
-<!--CONTENT-->
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="shortcut icon" href="favicon.ico">
-
-	<title>TalknGolf Tracker</title>
-
-	<!-- Bootstrap core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Custom styles for this template -->
-	<link href="css/talkngolf.css" rel="stylesheet">
-
-	<!-- ngAnimate support -->
-	<link href="css/animation_support.css" rel="stylesheet">
-
-	<style type="text/css">
-
-
-	</style>
+	</script>
 </head>
+<body data-ng-app="TnG">
+<span data-ng-view=""></span>
+</body>
 </html>
