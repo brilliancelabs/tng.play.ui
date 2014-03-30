@@ -12,6 +12,7 @@
 <script src="lib/angular/1.2.14/gestures.min.js"></script>
 <script src="lib/firebase/0.0.0/firebase.js"></script>
 <script src="lib/angular/1.2.14/angularfire.min.js"></script>
+<script src="lib/shake/shake.js"></script>
 
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 
@@ -167,6 +168,25 @@
 			}
 		});
 
+		var mulliganTaken;
+		angular.element('[data-take-mulligan]').on('click', function () {
+			//First save the shot to database as un-scored but tracked
+			//Then rewind to club selection
+			mulliganTaken = angular.element(this).data().takeMulligan;
+
+			roundState  = $location.path().split('/');
+			roundState.pop(); //play mode
+
+			if(mulliganTaken==="yes") {
+				//save mulligan to db for tracking but not scoring
+				//try again
+				$window.location = "#"+roundState.join('/');
+			} else {
+
+			}
+
+		});
+
 		$scope.goBack = function () {
 			history.back();
 			if(!$scope.$$phase) {
@@ -245,68 +265,4 @@
 
 	</style>
 </head>
-</html>) {
-			chosenAction = angular.element(this).data().chooseNext;
-			roundState  = $location.path().split('/');
-			roundState.pop(); //play mode
-			roundState.pop(); //current club
-			currentShotNumber = parseInt(roundState.pop());
-			currentHoleNumber = parseInt(roundState.pop());
-
-			if(chosenAction === 'shot') {
-				nextShotNumber = currentShotNumber + 1;
-				roundState.push(currentHoleNumber);
-				roundState.push(nextShotNumber);
-				nextShot = roundState.join('/');
-
-				$window.location = "#"+nextShot;
-			}
-
-			if(chosenAction === 'hole') {
-				nextHoleNumber = currentHoleNumber + 1;
-				roundState.push(nextHoleNumber);
-				nextHole = roundState.join('/');
-
-				$window.location = "#"+nextHole;
-			}
-		});
-
-		$scope.goBack = function () {
-			history.back();
-			if(!$scope.$$phase) {
-				$scope.$apply();
-			}
-		}
-
-
-	})
-	.config(function ($routeProvider) {
-		$routeProvider
-		.when('/', {
-			redirectTo: "/play"
-		})
-		.when('/play', {
-			controller: "Demo",
-			templateUrl: "app/views/9p/starting_hole.angv"
-		})
-		.when('/play/:hole/par', {
-			controller: "Demo",
-			templateUrl: "app/views/9p/par.angv"
-		})
-		.when('/play/:hole/:shot', {
-			controller: "Demo",
-			templateUrl: "app/views/9p/club.angv"
-		})
-		.when('/play/:hole/:shot/:club', {
-			controller: "Demo",
-			templateUrl: "app/views/9p/mood_thumbs.angv"
-		})
-		.when('/play/:hole/:shot/:club/:mood', {
-			controller: "Demo",
-			templateUrl: "app/views/9p/next.angv"
-		})
-	});
-</script>
-
-</body>
 </html>
