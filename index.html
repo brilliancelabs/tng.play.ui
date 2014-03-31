@@ -38,16 +38,24 @@
 	'use strict';
 
 	angular.module('TnG', ['ngRoute', 'ngTouch', 'firebase'])
+	.run(function ($rootScope, $location, $route) {
+		var roundRefUrl = 'https://tng-rounds.firebaseio.com/mvp';
+		var allRoundsRef = new Firebase(roundRefUrl);
+		//@TODO: replace with firebase simplelogin
+		var fakeUsername = new Date().getTime();
+		var roundRef = allRoundsRef.child(fakeUsername);
 
+		$rootScope.round = roundRef;
+	})
 	.controller('Demo', function ($scope, $location, $route, $firebase, $window) {
 		var ctrl = this,
 		firstTimeHelp,
 		loadValue,
 		loadPhase;
 
-		var refUrl = 'https://tng-rounds.firebaseio.com/demo';
-		var demoRef = new Firebase(refUrl);
-		var ref = demoRef.child('deezy');
+//		var refUrl = 'https://tng-rounds.firebaseio.com/demo';
+//		var demoRef = new Firebase(refUrl);
+//		var ref = demoRef.child('deezy');
 
 
 		var appPhases = {
@@ -67,21 +75,21 @@
 		$scope.currentClub = current.club || null;
 		$scope.activePane = 1;
 
-		$scope.load2Cell = function () {
-			$location.path('2cell');
-		}
-
-		$scope.load4Cell = function () {
-			$location.path('4cell');
-		}
-
-		$scope.load8Cell = function () {
-			$location.path('8cell');
-		}
-
-		$scope.loadNCell = function () {
-			$location.path('nCell');
-		}
+//		$scope.load2Cell = function () {
+//			$location.path('2cell');
+//		}
+//
+//		$scope.load4Cell = function () {
+//			$location.path('4cell');
+//		}
+//
+//		$scope.load8Cell = function () {
+//			$location.path('8cell');
+//		}
+//
+//		$scope.loadNCell = function () {
+//			$location.path('nCell');
+//		}
 
 		loadPhase = function (phaseToLoad) {
 			currentHolesPar = arguments[1];
@@ -100,7 +108,7 @@
 			holeInfo['par'] = currentHolesPar;
 			holeInfo['score'] = "0";
 
-			ref.child(current.hole).set(holeInfo);
+//			ref.child(current.hole).set(holeInfo);
 
 			$location.path(newPath);
 
@@ -132,7 +140,10 @@
 		var chosenPar;
 		angular.element('[data-choose-par]').on('click', function () {
 			chosenPar = angular.element(this).data().choosePar;
-			ref.child(current.hole).set({"par": chosenPar});
+
+			console.log('RS: ', $scope);
+			var parOfThisHole = $scope.round.child(current.hole).child('par');
+			parOfThisHole.set(chosenPar);
 
 			$window.location = "#/play/" + current.hole + "/1";
 		});
@@ -258,14 +269,10 @@
 			templateUrl: "app/views/9p/next.angv",
 			resolve: {
 				"dependencies": function ($rootScope, $route, $firebase) {
+					var roundState = $route.current.params;
+					var thisShot = $rootScope.round.child(roundState.hole).child('shots').child(roundState.shot);
 
-					//Firebase interactions
-					var roundRefUrl = 'https://tng-rounds.firebaseio.com/mvp/player1';
-					var roundRef = new Firebase(roundRefUrl);
-					var playState = $route.current.params;
-					var thisShot = roundRef.child(playState.hole).child(playState.shot);
-
-					thisShot.set($route.current.params);
+					thisShot.set(roundState);
 				}
 			}
 		})
