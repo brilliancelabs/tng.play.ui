@@ -1,0 +1,115 @@
+<div data-ng-include="'app/views/9p/header.angv'"></div>
+<div class="subhead">
+	<span style="float:left;position:absolute;left:4%">Hole: {{ currentHole }}</span>
+	<span class="sub-heading">Choose a club</span>
+	<span style="float:right;position:absolute;right:4%">Shot: {{ currentShot }}</span>
+</div>
+
+<div class="container main" data-ng-show="activePane == 1" data-ng-swipe-right="activePane=4"
+     data-ng-swipe-left="activePane=activePane+1">
+	<div class="row row-four">
+		<div class="cell" data-choose-club="driver">
+			Driver
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="3-wood">
+			3-Wood
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="3-hybrid">
+			3-Hybrid
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="3-iron">
+			3-Iron
+		</div>
+	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 2" data-ng-swipe-right="activePane=activePane-1"
+     data-ng-swipe-left="activePane=activePane+1">
+	<div class="row row-four">
+		<div class="cell" data-choose-club="4-hybrid">
+			4-Hybrid
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="4-iron">
+			4-Iron
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="5-hybrid">
+			5-Hybrid
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="5-iron">
+			5-Iron
+		</div>
+	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 3" data-ng-swipe-right="activePane=activePane-1"
+     data-ng-swipe-left="activePane=activePane+1">
+	<div class="row row-four">
+		<div class="cell" data-choose-club="6-iron">
+			6-Iron
+		</div>
+		<div class="cell" data-choose-club="7-iron">
+			7-Iron
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="8-iron">
+			8-Iron
+		</div>
+		<div class="cell" data-choose-club="9-iron">
+			9-Iron
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="aw">
+			AW
+		</div>
+		<div class="cell" data-choose-club="pw">
+			PW
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="lw">
+			LW
+		</div>
+		<div class="cell" data-choose-club="sw">
+			SW
+		</div>
+	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 4" data-ng-swipe-right="activePane=activePane-1"
+     data-ng-swipe-left="activePane=1">
+	<div class="row row-four">
+		<div class="cell" data-choose-club="1_Putt">
+			1 Putt
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="2_Putt">
+			2 Putt
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell" data-choose-club="3_Putt"
+		">
+		3 Putt
+	</div>
+</div>
+<div class="row row-four">
+	<div class="cell" data-choose-club="4_Putt">
+		4 Putt
+	</div>
+</div>
+</div>

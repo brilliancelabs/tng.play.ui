@@ -1,0 +1,8 @@
+<h2 data-ng-bind="heading" class="heading"></h2>
+<h3 data-ng-bind="subHeading" class="sub-heading"></h3>
+
+<div class="dynamic-content btn-group btn-group-vertical btn-group-lg">
+	<a type="button" class="btn btn-default"
+	   data-ng-repeat="(paneTitle, paneLink) in currentRound.clubs"
+	   data-ng-click="selectClub(paneLink)" data-ng-bind="paneTitle"></a>
+</div>

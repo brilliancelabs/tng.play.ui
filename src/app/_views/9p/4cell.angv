@@ -1,0 +1,82 @@
+<div class="subhead">
+	<!--<span class="pull-left">&lt;</span>-->
+	Starting Hole?
+	<!--<span class="pull-right">&gt;</span>-->
+</div>
+<div class="container main" data-ng-show="activePane == 1" data-ng-swipe-left="activePane=activePane+1">
+	<div class="row row-two">
+		<div class="cell">
+			Hole 10
+		</div>
+	</div>
+	<div class="row row-two">
+		<div class="cell">
+			Hole 1
+		</div>
+	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 2" data-ng-swipe-right="activePane=activePane-1"
+     data-ng-swipe-left="activePane=activePane+1">
+	<div class="row row-four">
+		<div class="cell">
+			Hole 9
+		</div>
+		<div class="cell">
+			Hole 10
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 11
+		</div>
+		<div class="cell">
+			Hole 12
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 13
+		</div>
+		<div class="cell">
+			Hole 14
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+			Hole 15
+		</div>
+		<div class="cell">
+			Hole 16
+		</div>
+	</div>
+</div>
+
+<div class="container main" data-ng-show="activePane == 3" data-ng-swipe-right="activePane=activePane-1">
+	<div class="row row-four">
+		<div class="cell">
+			Hole 17
+		</div>
+		<div class="cell">
+			Hole 18
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+		</div>
+		<div class="cell">
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+		</div>
+		<div class="cell">
+		</div>
+	</div>
+	<div class="row row-four">
+		<div class="cell">
+		</div>
+		<div class="cell">
+		</div>
+	</div>
+</div>

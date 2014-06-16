@@ -1,0 +1,20 @@
+<div data-ng-include="'views/app_header_mood.angv'"></div>
+
+<div class="subhead">
+	<span style="float:left;position:absolute;left:4%">Hole: {{ currentHole }}</span>
+	<span class="sub-heading">{{ currentClub | uppercase }}</span>
+	<span style="float:right;position:absolute;right:4%">Shot: {{ currentShot }}</span>
+</div>
+
+<div class="container main" data-ng-show="activePane == 1">
+	<div class="row row-two">
+		<div class="cell" data-choose-mood="good">
+			<span class="glyphicon glyphicon-thumbs-up mood-thumbs"></span>
+		</div>
+	</div>
+	<div class="row row-two">
+		<div class="cell" data-choose-club="bad">
+			<span class="glyphicon glyphicon-thumbs-down mood-thumbs"></span>
+		</div>
+	</div>
+</div>
