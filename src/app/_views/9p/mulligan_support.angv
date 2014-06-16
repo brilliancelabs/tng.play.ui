@@ -1,6 +1,0 @@
-<script>
-window.addEventListener('shake', shakeEventDidOccur, false);
-	function shakeEventDidOccur () {
-		$('.modal').modal('show');
-	}
-</script>

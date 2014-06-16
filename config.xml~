@@ -16,7 +16,7 @@
         PhoneGap Team
     </author>
 
-    <content src="index.html" />
+    <content src="dist/index.html" />
 
     <!--
         If you do not want any permissions to be added to your app, add the
