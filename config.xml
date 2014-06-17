@@ -17,7 +17,9 @@
     </description>
 
     <author href="http://talkngolf.com" email="golf@kshunz.com">
-        Dwayne Ford
+        K. Shunz
     </author>
+
+    <gap:plugin name="org.apache.cordova.device" />
 
 </widget>
