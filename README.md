@@ -1,1 +1,0 @@
-# **TalknGolf** (tng.play.ui) #
